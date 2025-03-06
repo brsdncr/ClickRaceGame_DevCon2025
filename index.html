@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click Race Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="game-container">
+        <div class="player-side">
+            <h2>YOU</h2>
+            <div class="score" id="player-score">0</div>
+            <button id="player-button">Click</button>
+        </div>
+        <div class="computer-side">
+            <h2>COMPUTER</h2>
+            <div class="score" id="computer-score">0</div>
+            <div id="computer-button" class="fake-button"></div>
+        </div>
+    </div>
+
+    <div id="result-popup" class="hidden">
+        <div id="result-message"></div>
+        <button id="restart-button">Restart</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
