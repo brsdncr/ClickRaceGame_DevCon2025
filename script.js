@@ -23,9 +23,7 @@ playerButton.addEventListener("click", () => {
 
 function startGame() {
     gameRunning = true;
-
-    //Computer speed is between 100 - 250
-    let computerSpeed = 120
+    let computerSpeed = 150 //Average human clicking is 180
     console.log("computerSpeed:", computerSpeed)
     computerInterval = setInterval(() => {
         if (computerScore < maxScore && playerScore < maxScore) {
@@ -39,18 +37,25 @@ function startGame() {
 
 function checkWinner() {
     if (playerScore >= maxScore) {
-        endGame("You won! 🎉");
+        endGame("You won! 🎉", "player");
     } else if (computerScore >= maxScore) {
-        endGame("Automation Won! 😢");
+        endGame("Automation Won! 😢", "computer");
     }
 }
 
-function endGame(message) {
+function endGame(message, winner) {
     clearInterval(computerInterval);
     gameRunning = false;
     resultMessage.textContent = message;
     resultPopup.classList.remove("hidden");
     playerButton.disabled = true;
+
+    // Change popup background color based on the winner
+    if (winner === "player") {
+        resultPopup.classList.add("green-win");  // Green background for player win
+    } else {
+        resultPopup.classList.remove("green-win");  // Red background for computer win
+    }
 }
 
 restartButton.addEventListener("click", () => {
